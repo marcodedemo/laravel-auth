@@ -44,7 +44,15 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-danger">Delete Permanently</button>
+                  
+                  <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
+                    
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete Permanently</button>
+
+                  </form>
+
                 </div>
               </div>
             </div>
