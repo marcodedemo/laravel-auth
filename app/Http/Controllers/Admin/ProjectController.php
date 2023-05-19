@@ -76,7 +76,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin/projects/edit', compact('project'));
     }
 
     /**
@@ -88,7 +88,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $this->validation($request);
+
+        $formData = $request->all();
+
+        $project->update($formData);
+
+        $project->save();
+
+        return redirect()->route('admin.projects.show', $project->slug);
     }
 
     /**
@@ -110,7 +118,7 @@ class ProjectController extends Controller
 
         $validator = Validator::make($formData,[
 
-            'title' => 'required|unique:projects',
+            'title' => 'required',
             'description' => 'required',
             'link' => 'required',
             'language' => 'required|max:50',
@@ -120,7 +128,6 @@ class ProjectController extends Controller
         ],
         [
             'title.required'=>'Insert a title',
-            'title.unique'=>'Insert another title, this title is already taken',
             'description.required' => 'Insert a description',
             'language.required' => 'Insert a language',
             'language.required' => 'The language field can have a maximum of 50 characters',

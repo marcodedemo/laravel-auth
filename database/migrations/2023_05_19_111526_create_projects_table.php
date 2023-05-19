@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title')->unique();
+            $table->string('title');
             $table->text('description');
-            $table->string('link')->unique();
+            $table->string('link');
             $table->string('language', 50);
             $table->string('framework', 50);
             $table->date('execution_date');
-            $table->string('slug')->unique()->default();
+            $table->string('slug');
 
 
             $table->timestamps();
