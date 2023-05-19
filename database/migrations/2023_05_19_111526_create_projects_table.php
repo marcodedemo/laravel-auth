@@ -18,11 +18,11 @@ return new class extends Migration
 
             $table->string('title')->unique();
             $table->text('description');
-            $table->string('link');
+            $table->string('link')->unique();
             $table->string('language', 50);
             $table->string('framework', 50);
             $table->date('execution_date');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->default();
 
 
             $table->timestamps();

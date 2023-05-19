@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -39,6 +41,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validation($request);
+
+        $formData = $request->all();
+
+        $formData['slug'] = Str::slug($formData['title'], '-');
+
+        $newProject = new Project();
+
+        $newProject->fill($formData);
+
+        $newProject->save();
+
+        return redirect()->route('admin.projects.show', $newProject->slug);
     }
 
     /**
@@ -85,5 +100,36 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    private function validation($request){
+
+        $formData = $request->all();
+
+        $validator = Validator::make($formData,[
+
+            'title' => 'required|unique:projects',
+            'description' => 'required',
+            'link' => 'required',
+            'language' => 'required|max:50',
+            'framework' => 'required|max:50',
+            'execution_date' => 'required',
+            
+        ],
+        [
+            'title.required'=>'Insert a title',
+            'title.unique'=>'Insert another title, this title is already taken',
+            'description.required' => 'Insert a description',
+            'language.required' => 'Insert a language',
+            'language.required' => 'The language field can have a maximum of 50 characters',
+            'framework.required' => 'Insert a framework',
+            'framework.max' => 'The framework field can have a maximum of 50 characters',
+            'execution_date.required' => 'Insert an execution date',
+
+
+
+        ]);
+
+        return $validator;
     }
 }
