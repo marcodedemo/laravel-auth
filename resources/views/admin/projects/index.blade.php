@@ -10,7 +10,7 @@
 
 </div>
 
-<div class="container d-flex flex-wrap gap-3">
+<div class="container d-flex flex-wrap gap-3 mt-5">
 
     @foreach ($projects as $project)
 
@@ -19,7 +19,7 @@
     <div class="card" style="width: 18rem;">
         <div class="card-body d-flex flex-column justify-content-between">
 
-            <a href="{{route('admin.projects.show', $project->slug )}}" class="text-black"><h5 class="card-title">{{$project->title}}</h5>
+            <a href="{{route('admin.projects.show', $project->slug)}}" class="text-black"><h5 class="card-title">{{$project->title}}</h5>
             </a>
             
                 <div class="card-text">
@@ -40,5 +40,13 @@
     @endforeach
 
 </div>
+
+
+<div class="container d-flex justify-content-center align-items-center my-5">
+    <div id="buttons">
+        <a href="{{route('admin.projects.create')}}"><button class="btn btn-primary">Add Project</button></a>
+    </div>
+</div>
+
 
 @endsection
