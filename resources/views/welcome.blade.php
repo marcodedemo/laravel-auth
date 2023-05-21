@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.guest-app')
 @section('content')
 
 <div class="jumbotron p-3 mb-4 bg-light rounded-3">
