@@ -118,7 +118,7 @@ class ProjectController extends Controller
 
         $validator = Validator::make($formData,[
 
-            'title' => 'required',
+            'title' => 'required|unique:projects',
             'description' => 'required',
             'link' => 'required',
             'language' => 'required|max:50',
@@ -128,6 +128,7 @@ class ProjectController extends Controller
         ],
         [
             'title.required'=>'Insert a title',
+            'title.unique'=>'Title already taken, please insert an alternative value',
             'description.required' => 'Insert a description',
             'language.required' => 'Insert a language',
             'language.required' => 'The language field can have a maximum of 50 characters',
@@ -137,7 +138,7 @@ class ProjectController extends Controller
 
 
 
-        ]);
+        ])->validate();
 
         return $validator;
     }
