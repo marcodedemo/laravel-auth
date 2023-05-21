@@ -15,20 +15,20 @@
 
         @foreach ($projects as $project)
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <h5 class="card-title">{{$project->title}}</h5>
-              <div class="card-text">
-                <ul>
-                    <li><strong>Languages: </strong> {{$project->language}}</li>
-                    <li><strong>Frameworks: </strong> {{$project->framework}}</li>
-                    <li><strong>Execution Date: </strong> {{$project->execution_date}}</li>
-                    <li><strong>Description: </strong> {{$project->description}}</li>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">{{$project->title}}</h5>
+                        <div class="card-text">
+                            <ul>
+                                <li><strong>Languages: </strong> {{$project->language}}</li>
+                                <li><strong>Frameworks: </strong> {{$project->framework}}</li>
+                                <li><strong>Execution Date: </strong> {{$project->execution_date}}</li>
+                                <li><strong>Description: </strong> {{$project->description}}</li>
 
-                </ul>
-              </div>
-              <a href="{{$project->link}}" class="card-link">Link Github</a>
-            </div>
+                            </ul>
+                        </div>
+                    <a href="{{$project->link}}" class="card-link">Link Github</a>
+                </div>
           </div>
             
         @endforeach

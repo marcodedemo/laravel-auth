@@ -4,10 +4,13 @@
 @section('content')
 
 
-<div class="container">
+<div class="jumbotron p-3 mb-4 bg-light rounded-3">
+    <div class="container py-5">
 
-    <h1>Lista Progetti</h1>
-
+        <h1 class="display-5 fw-bold">
+            Lista Progetti 
+        </h1>
+    </div>
 </div>
 
 <div class="container d-flex flex-wrap gap-3 mt-5">
@@ -31,7 +34,7 @@
                         
                     </ul>
                 </div>
-                <a href="{{$project->link}}" class="card-link">Link Github</a>
+                <a href="{{$project->link}}" class="card-link">Github</a>
             </div>
         </div>
 

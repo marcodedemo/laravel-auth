@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container py-5">
 
     <h1>{{$project->title}}</h1>
     <hr>
@@ -20,7 +20,7 @@
     <p>{{$project->description}}</p>
 
 
-    <div id="buttons">
+    <div id="buttons" class="d-flex flex-column gap-3">
 
         
         <div id="project-edit">
