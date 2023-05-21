@@ -26,7 +26,7 @@
                     <ul>
                         <li><strong>Languages: </strong> {{$project['language']}}</li>
                         <li><strong>Frameworks: </strong> {{$project['framework']}}</li>
-                        <li><strong>Execution Date: </strong> {{$project['execution_date']}}</li>
+                        <li><strong>Execution Date: </strong> {{date("d/m/Y", strtotime($project['execution_date']))}}</li>
                         <li><strong>Description: </strong> {{$project['description']}}</li>
                         
                     </ul>

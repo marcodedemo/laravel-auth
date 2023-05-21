@@ -9,7 +9,7 @@
 
     <div id="info" class="d-flex flex-column">
 
-        <span><strong>Execution Date: </strong>{{$project->execution_date}}</span>
+        <span><strong>Execution Date: </strong>{{date("d/m/Y", strtotime($project->execution_date))}}</span>
         <span><strong>Languages: </strong>{{$project->language}}</span>
         <span><strong>Framework: </strong>{{$project->framework}}</span>
 
